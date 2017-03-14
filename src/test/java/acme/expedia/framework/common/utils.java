@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by vanwh on 01/03/2017.
  */
@@ -33,6 +36,20 @@ public class utils {
         theCurrentUrl = driver.getCurrentUrl();
         //System.out.println("The page title is : " + thePageTitle);
         return theCurrentUrl;
+    }
+
+    public String[] getElementArray(List<WebElement> allElements) {
+
+        int s = allElements.size();
+        String[] names = new String[s];
+
+        int j = 0;
+        for (WebElement element: allElements) {
+            names[j] = element.getText();
+            j++;
+
+    }
+    return names;
     }
 
 }

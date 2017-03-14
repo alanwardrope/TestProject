@@ -12,6 +12,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
+
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -88,13 +93,15 @@ public class MenuSelectionTestCaseChromeHp {
         titleOfPage = pgTitle.selectedPageTitle(driver);
         System.out.println("The page title is : " + titleOfPage);
         menuSelect.clickMoreMenuTabGt1015px();
-        menuSelect.verifyNumMoreMenuOptionGt1015px(driver, 4, "Cottages");
+        menuSelect.verifyNumMoreMenuOptionGt1015px2(driver, 4, "Cottages");
         Thread.sleep(1000);
 
         // Now we should be in Cottage Page
         // Want to Assert this to do a compariosn with what is returned
+        String cottagePageExpectedTitle = "Expedia Cottages in partnership with cottages.com";
         titleOfPage = pgTitle.selectedPageTitle(driver);
         System.out.println("The page title is :" + titleOfPage);
+        assertThat(pgTitle.selectedPageTitle(driver), is(equalTo(cottagePageExpectedTitle)));
         urlOfPage = pgTitle.selectedPageURL(driver);
         System.out.println("The page url is :" + urlOfPage);
         Thread.sleep(2000);
@@ -105,14 +112,22 @@ public class MenuSelectionTestCaseChromeHp {
         cottagePage.clickBackToExpedia();
 
         // Should return to Home/Search page
+
+        String searchPageExpectedTitle = "Travel Deals: Flights, Hotels and Holidays - Travel with Expedia";
         titleOfPage = pgTitle.selectedPageTitle(driver);
+        assertThat(pgTitle.selectedPageTitle(driver), containsString("Hotels and Holidays"));
+        //assertThat(pgTitle.selectedPageTitle(driver), both(containsString("Travel").and(containsString("Expedia"))));
+        assertThat(pgTitle.selectedPageTitle(driver), anyOf(startsWith("Travel"), containsString("tosh")));
+        assertThat(pgTitle.selectedPageTitle(driver), allOf(startsWith("Travel"), containsString("idays")));
+        assertThat(pgTitle.selectedPageTitle(driver), startsWith("Travel"));
         System.out.println("The page title is : " + titleOfPage);
+
     }
 
 
     @AfterClass
     public void afterClass(){
 
-        //driver.quit();
+        driver.quit();
     }
 }

@@ -87,7 +87,7 @@ public class frameworkTestCaseChromeHp {
         if (searchPage.validateChildLabelsDisplayed(driver, 2))
         { System.out.println("Childrens Ages can be set as expected"); } else {
             System.out.println("Some form of error - maybe add an assert here");
-        };
+        }
 
         // Set the Age of a Child Label Dropdown
         searchPage.setAgeOfChildOneDropdown(1);
@@ -100,13 +100,13 @@ public class frameworkTestCaseChromeHp {
         }
 
 
-        if (searchPage.validateInLapRBText() == "In lap"){
+        if (searchPage.validateInLapRBText().equals("In lap")){
             System.out.println("In Lap label is correct " + searchPage.validateInLapRBText());
         }else {
             System.out.println("In Lap label is incorrect " + searchPage.validateInLapRBText());
         }
 
-        if (searchPage.validateInSeatRBText() == "In Seat"){
+        if (searchPage.validateInSeatRBText().equals("In Seat") ){
             System.out.println("In Seat label is correct " + searchPage.validateInSeatRBText());
         }else {
             System.out.println("In Seat label is incorrect " + searchPage.validateInSeatRBText());

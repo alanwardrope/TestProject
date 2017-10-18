@@ -105,8 +105,10 @@ public class SshConnTestCaseChromeHp {
         //searchPage.numAdultsDropdown.selectByIndex(2);
         //searchPage.numChildrenDropdown.selectByVisibleText("6");
         sshc = new SshConnector(SSH_HOST, SSH_USER, SSH_PASSWD, SSH_COMMAND);
+        //
         // TODO - Need to add condition so it stops in a known time period
         // TODO - Perhaps have two jobs running on UNIX box one to capture a reponse if erro occurs
+        //
         sshc.openSshConnection();
         System.out.println("END OF TestClass");
 

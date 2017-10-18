@@ -10,6 +10,10 @@ import com.jcraft.jsch.Session;
 
 /**
  * Created by wardropea on 18/10/2017.
+ * URLS:
+ * Main Page: https://www.journaldev.com/246/jsch-example-java-ssh-unix-server
+ * Javadocs: http://epaul.github.io/jsch-documentation/javadoc/com/jcraft/jsch/package-summary.html
+ * POM: Available from maven com.jcraft.jsch.0.1.53
  */
 public class SshConnector {
 

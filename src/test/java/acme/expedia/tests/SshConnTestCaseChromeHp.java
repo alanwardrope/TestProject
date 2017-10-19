@@ -44,7 +44,7 @@ public class SshConnTestCaseChromeHp {
     // Constant for port number
     public static String SSH_PASSWD = "fuseAdmin";
     // Constant for Database SID/DBNAME
-    public static String SSH_COMMAND = "./a.sh";
+    public static String SSH_COMMAND = "./cportalxmlcapture.sh";
 
 
     @BeforeClass
@@ -58,8 +58,6 @@ public class SshConnTestCaseChromeHp {
         //baseUrl = "https://www.expedia.com";
         //searchPage = new SearchPageFactoryHp(driver);
         //menuSelect = new MainMenuFactoryHp(driver);
-
-
 
         // Maximize the browser's window
         //driver.manage().window().maximize();

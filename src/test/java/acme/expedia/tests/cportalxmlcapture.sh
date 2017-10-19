@@ -7,12 +7,14 @@
 # ######################################
 
 # VARIABLES
+homedir=`pwd`
 logger=logfile.txt
 logdir=/opt/fuse/data/log/
 logfile=fuseesb-DEBUG.log
 b=0
 
 # DEBUG
+#echo $homedir
 #echo $logdir$logfile
 #echo $homedir/$logger
 
